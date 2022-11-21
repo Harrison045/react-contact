@@ -3,7 +3,12 @@ import React from "react";
 import { Col, Button } from "react-bootstrap";
 
 const Contact = (props) => {
+  const handleDelete = (e) => {
+    e.preventDefault();
+    props.deleteUser(props.userInfo.id);
+  };
   return (
+    <>
     <Col>
       <Card style={{ width: "18rem" }}>
         <Card.Body>
@@ -17,13 +22,14 @@ const Contact = (props) => {
           </Card.Text>
           <Card.Link href="#">Edit</Card.Link>
           <Card.Link href="#">
-            <Button variant="danger" size="sm">
+            <Button variant="danger" size="sm" onClick={handleDelete}>
               Delete
             </Button>
           </Card.Link>
         </Card.Body>
       </Card>
     </Col>
+    </>
   );
 };
 

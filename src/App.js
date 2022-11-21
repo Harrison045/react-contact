@@ -26,8 +26,15 @@ class App extends Component {
     };
   }
   addNewUser = (user) => {
+    user.id = Math.random().toString();
     this.setState({
       contact: [...this.state.contact, user],
+    });
+  };
+  deleteUser = (id) => {
+    let notdeletedUsers = this.state.contact.filter((user) => user.id !== id);
+    this.setState({
+      contact: notdeletedUsers,
     });
   };
 
